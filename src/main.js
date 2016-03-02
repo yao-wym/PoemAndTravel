@@ -8,22 +8,34 @@ require('./myapp.less')
 require('jQuery');
 var img = document.createElement('img');
 img.src = require('./test.jpg');
-var Vue = require('vue')
-var app = new Vue({
+var Vue = require('vue');
+var app = new Vue({ 
   el: '#app',
-  data: {
-    view: 'page-a'
+  data: { 
+    view: 'index-home'
   },
   components: {
     // define the main pages as async components.
-    'page-a': function (resolve) {
-      require(['./views/a'], resolve)
+    'index-home': function (resolve) {
+      require(['./views/index-home'], resolve);
     },
-    'page-b': function (resolve) {
-      require(['./views/b'], resolve)
+    'index-cart': function (resolve) {
+      require(['./views/index-cart'], resolve);
+    },
+    'index-article': function (resolve) {
+      require(['./views/index-article'], resolve);
+    },
+    'index-ucenter': function (resolve) {
+      require(['./views/index-ucenter'], resolve);
+    },
+    'app-header': function (resolve) {
+      require(['./components/header'], resolve);
+    },
+    'index-tab': function (resolve) {
+      require(['./components/index-tab'], resolve);
     }
   }
-})
+});
 
 /**
  * Some really crude routing logic here, just for
@@ -34,7 +46,7 @@ var app = new Vue({
  */
 
 function route () {
-  app.view = window.location.hash.slice(1) || 'page-a'
+  app.view = window.location.hash.slice(1) || 'index-home'
 } 
 
 window.addEventListener('hashchange', route)
