@@ -1,0 +1,38 @@
+{
+  "name": "PoemAndTravel",
+  "version": "1.0.0",
+  "description": "shihua project.",
+  "main": "src/main.js",
+  "devDependencies": {
+    "css-loader": "^0.22.0",
+    "less-loader": "2.2.1",
+    "html-loader": "^0.3.0",
+    "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "webpack": "^1.11.0",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --quiet",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yao-wym/PoemAndTravel"
+  },
+  "keywords": [
+    "vue",
+    "webpack"
+  ],
+  "author": "Evan You",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yao-wym/PoemAndTravel/issues"
+  },
+  "homepage": "https://github.com/yao-wym/PoemAndTravel",
+  "dependencies": {
+    "file-loader": "^0.8.5",
+    "vue": "^0.12.10"
+  }
+}
