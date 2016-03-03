@@ -4,6 +4,11 @@ module.exports = {
   data: function () {
     return {
       msg: '123',
+      cartGoods: [{
+          message: 'Foo'
+        },{
+          message: 'Bar'
+        }],
       headerIconRight: 'search',
       iconleft: 'plus',
       leftName: 'Bruce Lee',
@@ -12,6 +17,6 @@ module.exports = {
   },
   components: {
     'app-header': require('../../components/header'),
-    'app-pane': require('../../components/pane')
+    'app-cart-list': require('../../components/cart-list')
   }
 }

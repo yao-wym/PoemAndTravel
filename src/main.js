@@ -2,12 +2,11 @@
 // pre-process and insert css directly with require().
 // See webpack.config.js for details.  
 
+require('jquery');
 require('./main.styl')
 require('./boot.css')
 require('./myapp.less')
-require('jQuery');
-var img = document.createElement('img');
-img.src = require('./test.jpg');
+require('./asset/js/url.js')
 var Vue = require('vue');
 var app = new Vue({ 
   el: '#app',

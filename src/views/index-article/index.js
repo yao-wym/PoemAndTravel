@@ -12,6 +12,6 @@ module.exports = {
   },
   components: {
     'app-header': require('../../components/header'),
-    'app-pane': require('../../components/pane')
+    'app-article-list': require('../../components/article-list')
   }
 }
