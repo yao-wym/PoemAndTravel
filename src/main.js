@@ -8,30 +8,35 @@ require('./boot.css')
 require('./myapp.less')
 require('./asset/js/url.js')
 var Vue = require('vue');
-var app = new Vue({ 
+var VueRouter = require('vue-router');
+Vue.use(VueRouter);
+var app = new Vue({
   el: '#app',
-  data: { 
+  data: {
     view: 'index-home'
   },
   components: {
     // define the main pages as async components.
-    'index-home': function (resolve) {
+    'index-home': function(resolve) {
       require(['./views/index-home'], resolve);
     },
-    'index-cart': function (resolve) {
+    'index-cart': function(resolve) {
       require(['./views/index-cart'], resolve);
     },
-    'index-article': function (resolve) {
+    'index-article': function(resolve) {
       require(['./views/index-article'], resolve);
     },
-    'index-ucenter': function (resolve) {
+    'index-ucenter': function(resolve) {
       require(['./views/index-ucenter'], resolve);
     },
-    'app-header': function (resolve) {
+    'app-header': function(resolve) {
       require(['./components/header'], resolve);
     },
-    'index-tab': function (resolve) {
+    'index-tab': function(resolve) {
       require(['./components/index-tab'], resolve);
+    },
+    'user-login': function(resolve) {
+      require(['./views/user-login'], resolve);
     }
   }
 });
@@ -44,9 +49,48 @@ var app = new Vue({
  * automatically handle all the lazy loading for us.
  */
 
-function route () {
-  app.view = window.location.hash.slice(1) || 'index-home'
-} 
+function route() {
+  checkLogin();
+  app.view = window.location.hash.slice(1) || 'index-home';
+  console.log(app.view);
+}
+
+function checkLogin() {
+  if (window.location.hash.slice(1) == 'index-ucenter') {
+    if (localStorage.getItem('isLogin') == null) {
+      location.href = '#user-login';
+    };
+  }
+}
 
 window.addEventListener('hashchange', route)
 window.addEventListener('load', route)
+initLayout();
+
+function initLayout() {
+  var dpr, rem, scale;
+  var docEl = document.documentElement;
+  var fontEl = document.createElement('style');
+  var metaEl = document.querySelector('meta[name="viewport"]');
+  scale = 1 / dpr;
+  dpr = win.devicePixelRatio || 1;
+  rem = docEl.clientWidth * dpr / 10;
+  // 设置viewport，进行缩放，达到高清效果 
+  metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ', initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+  // 设置data-dpr属性，留作的css hack之用 
+  docEl.setAttribute('data-dpr', dpr);
+  // 动态写入样式 
+  docEl.firstElementChild.appendChild(fontEl);
+  fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+  // 给js调用的，某一dpr下rem和px之间的转换函数 
+  window.rem2px = function(v) {
+    v = parseFloat(v);
+    return v * rem;
+  };
+  window.px2rem = function(v) {
+    v = parseFloat(v);
+    return v / rem;
+  };
+  window.dpr = dpr;
+  window.rem = rem;
+}
