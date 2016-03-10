@@ -7,7 +7,10 @@ poem-line-color = grey
 poem-text-gray = gray
 poem-text-black = black
 
-
+@import "../../main.styl"
+px2rem(name, px){ 
+    name: px/75 
+}
 app-header
   color #bada55
 .index-tab
@@ -16,9 +19,9 @@ app-header
 .poem-green
   background-color:poem-green
 .index-tab img
-	width:2rem
+	px2rem("width",30)
 	display: block
 	margin:0 auto
 .index-tab a
-	font-size:0.7rem
+	font-size:2em
 	color:rgb(88,88,88)

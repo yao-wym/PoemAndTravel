@@ -37,6 +37,12 @@ var app = new Vue({
     },
     'user-login': function(resolve) {
       require(['./views/user-login'], resolve);
+    },
+    'user-reg': function(resolve) {
+      require(['./views/user-reg'], resolve);
+    },
+    'common-header': function(resolve) {
+      require(['./components/common-header'], resolve);
     }
   }
 });
@@ -72,8 +78,8 @@ function initLayout() {
   var docEl = document.documentElement;
   var fontEl = document.createElement('style');
   var metaEl = document.querySelector('meta[name="viewport"]');
-  scale = 1 / dpr;
-  dpr = win.devicePixelRatio || 1;
+  dpr = window.devicePixelRatio || 1;
+  scale = 1/dpr;
   rem = docEl.clientWidth * dpr / 10;
   // 设置viewport，进行缩放，达到高清效果 
   metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ', initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
