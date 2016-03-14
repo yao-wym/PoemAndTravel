@@ -6,10 +6,15 @@ module.exports = {
 	template: require('./template.html'),
 	replace: true,
 	data: function () {
-    return {
-      test: test2,
-    }},
-	props: ['side', 'name', 'cartGoods']
+		var listData = {
+			'cartGoods':[]
+		};
+		setTimeout(function(){
+			listData.cartGoods = [{'message':4},{'message':5},{'message':6}]
+		}, 2000);
+    	return listData
+	},
+	props: ['side', 'name']
 }
 function getArticleList() {
 	$.getJSON(ARTICLE_LIST_API, {

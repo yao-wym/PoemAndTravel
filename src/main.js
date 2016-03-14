@@ -59,7 +59,7 @@ var app = new Vue({
  */
 
 function route() {
-  checkLogin();
+  // checkLogin();
   app.view = window.location.hash.slice(1) || 'index-home';
   console.log(app.view);
 }
