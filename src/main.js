@@ -43,7 +43,10 @@ var app = new Vue({
     },
     'common-header': function(resolve) {
       require(['./components/common-header'], resolve);
-    }
+    },
+    'user-findpwd': function(resolve) {
+      require(['./views/user-findpwd'], resolve);
+    },
   }
 });
 
