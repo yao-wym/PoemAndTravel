@@ -47,6 +47,15 @@ var app = new Vue({
     'user-findpwd': function(resolve) {
       require(['./views/user-findpwd'], resolve);
     },
+    'hotel-list': function(resolve) {
+      require(['./views/hotel-list'], resolve);
+    },
+    'app-tab':function(resolve) {
+      require(['./components/index-tab'], resolve);
+    },
+    'filter-tab':function(resolve) {
+      require(['./components/filter-tab'], resolve);
+    }
   }
 });
 
