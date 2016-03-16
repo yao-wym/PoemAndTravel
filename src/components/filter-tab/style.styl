@@ -17,9 +17,28 @@ app-header
 .filter-tab a
 	font-size:0.3rem
 	color:rgb(88,88,88)
-.filter-item li
-	height:40px
-	color:text-gray
-	list-style:none
-	font-size:16px
-	
+.item-list
+	padding-left:0
+	margin:0
+	list-style: none;
+	text-align:center;
+	background-color:white;
+	color:gray
+	& li
+		height:0.8rem
+		line-height:0.8rem
+		color:text-gray
+		list-style:none
+		font-size:16px
+		transition-property: opacity, left;
+		transition-duration: 3s, 5s;
+	& li:after
+		background-color: line-color
+		bottom: 0
+		content: "";  
+		display: block
+		height:1px
+	& li:hover
+		cursor:pointer
+		background-color:grey
+

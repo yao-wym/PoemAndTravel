@@ -2,5 +2,37 @@ require('./style.styl')
 
 module.exports = {
   template: require('./template.html'),
-  props: ['msg','iconLeft','iconRight']
+  props: ['msg','filterItems','orderItems'],
+  data: function(){
+  	return {
+  		items:this.orderItems
+  	}
+  },
+  methods:{
+  	showFilter:function(){
+  		this.showList();
+  		this.items = this.filterItems
+  	},
+  	showOrder:function(){
+  		this.showList();
+  		this.items = this.orderItems
+  	},
+  	changeList:function(){
+
+  	},
+  	itemClick:function(){
+  		this.hiddenMask();
+  	},
+  	resetState:function(){
+  	},
+  	showList:function(){
+  		$('#tab-mask').removeClass("poem-hidden");
+  		$('#tab-mask').addClass('poem-mask');
+  		$('.item-list').removeClass("poem-hidden");
+  	},
+  	hiddenMask:function(){
+  		$('.poem-mask').addClass("poem-hidden");
+  		$('.item-list').addClass("poem-hidden");
+  	}
+  }
 } 
