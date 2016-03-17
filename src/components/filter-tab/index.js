@@ -18,10 +18,11 @@ module.exports = {
   		this.items = this.orderItems
   	},
   	changeList:function(){
-
+      this.$dispatch('conditionChange');
   	},
   	itemClick:function(){
   		this.hiddenMask();
+      this.changeList();
   	},
   	resetState:function(){
   	},

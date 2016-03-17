@@ -1,10 +1,3 @@
-<div class="view" v-transition>
-	<app-header icon-left="{{iconleft}}" msg="{{msg}}"></app-header>
-	<!-- <app-pane side="left" name="{{leftName}}"></app-pane>
--->
-<div id="iscroll" style="overflow: scroll;height: 10rem">
-	<ul id="hotel-list-view" style="font-size: 0.3rem">
-	<!-- <li v-repeat="hotel in hotelItems"> -->
 	<li class="goods-item" v-repeat="hotel in hotelList">
 			<img src="../../asset/images/about.png" class="goods-img">
 			<!-- <p>{{cartGoods}}</p>
@@ -23,8 +16,3 @@
 				</div>
 			</div>
 	</li>
-</ul>
-	<return-top></return-top>
-</div>
-	<filter-tab filter-items="{{filterList}}" order-items="{{orderList}}"></filter-tab>
-</div>

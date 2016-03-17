@@ -7,6 +7,7 @@ require('./main.styl')
 require('./boot.css')
 require('./myapp.less')
 require('./asset/js/url.js')
+require('./asset/js/function.js')
 var Vue = require('vue');
 var VueRouter = require('vue-router');
 Vue.use(VueRouter);
@@ -55,6 +56,12 @@ var app = new Vue({
     },
     'filter-tab':function(resolve) {
       require(['./components/filter-tab'], resolve);
+    },
+    'return-top':function(resolve) {
+      require(['./components/go-top'], resolve);
+    },
+    'return-top':function(resolve) {
+      require(['./components/go-top'], resolve);
     }
   }
 });
@@ -80,6 +87,7 @@ function checkLogin() {
     };
   }
 }
+
 
 window.addEventListener('hashchange', route)
 window.addEventListener('load', route)
